@@ -45,5 +45,6 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Crea Comic</button>
+    <a href="{{route("comics.index")}}"><button type="button" class="btn btn-danger">Torna alla pagina Comics</button></a>
 </form>
 @endsection

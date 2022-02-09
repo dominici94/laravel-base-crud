@@ -3,8 +3,10 @@
 @section('pageContent')
 
     <h1>Comics</h1>
+
+    <a href="{{route("comics.create")}}"><button type="button" class="btn btn-primary">Aggiungi Comic</button></a>
     
-    <table class="table">
+    <table class="table mt-3">
 
         <thead>
             <tr>
