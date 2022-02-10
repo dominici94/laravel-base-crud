@@ -7,6 +7,7 @@
         {{-- i due !! per tradurre il codice HTML inserito nell'elemento --}}
         {{!!$comic->description!!}}
     </p>
+    <h3>{{$comic->type}}</h3>
     <div>
         <a href="{{route("comics.index")}}"><button type="button" class="btn btn-primary">Torna ai comics</button></a>
     </div>
