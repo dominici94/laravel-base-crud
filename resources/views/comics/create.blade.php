@@ -3,7 +3,10 @@
 @section('pageContent')
 <h1>Crea un nuovo fumetto</h1>
 
-<form>
+<form action="{{route("comics.store")}}" method="POST">
+    {{-- token da inserire in ogni form --}}
+    @csrf
+
     <div class="form-group">
       <label for="title">Titolo</label>
       <input type="text" class="form-control" id="title" name="title" placeholder="inserisci il titolo del fumetto">
@@ -31,12 +34,13 @@
 
     <div class="form-group">
         <label for="sale">Data di vendita</label>
-        <input type="date" class="form-control" name="sale_dat" id="sale" placeholder="inserisci la data di vendita">
+        <input type="date" class="form-control" name="sale_date" id="sale" placeholder="inserisci la data di vendita">
     </div>
 
     <div class="form-group">
         <label for="type">Genere</label>
         <select class="form-control" name="type" id="type">
+            <option value="">SELEZIONA UN GENERE</option>
             <option value="graphic novel">graphic novel</option>
             <option value="comic book">comic book</option>
             <option value="other">altro</option>
@@ -45,6 +49,6 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Crea Comic</button>
-    <a href="{{route("comics.index")}}"><button type="button" class="btn btn-danger">Torna alla pagina Comics</button></a>
+    <a href="{{route("comics.index")}}"><button type="button" class="btn btn-danger">Torna indietro</button></a>
 </form>
 @endsection
