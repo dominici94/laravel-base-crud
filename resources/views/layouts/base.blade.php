@@ -6,6 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>comics</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <script>
+        function myFunction(){
+            let request = window.confirm("Vuoi eliminare il fumetto?");
+            return request;
+
+        }
+    </script>
 </head>
 <body>
     <div class="container">
