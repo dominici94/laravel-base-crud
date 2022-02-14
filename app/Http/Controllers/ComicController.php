@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Comic;
+use Illuminate\Validation\Rule;
 
 class ComicController extends Controller
 {
@@ -38,6 +39,21 @@ class ComicController extends Controller
     {
         // dd($request->all());
         $data = $request->all();
+
+        // VALIDAZIONE
+        $request->validate([
+            "title" => "required|string|max:75|unique:comics",
+            "description" => "required|string",
+            "image" => "nullable|url",
+            "price" => "required|numeric|between:0.99,99999.99",
+            "series" => "nullable|string|max:50",
+            "sale_date" => "required|date",
+            "type" => [
+                    "required",
+                    Rule::in('graphic novel', 'comic book', 'altro'),
+                ]
+        ]);
+
         // dd($request);
         // $newComic = new Comic();
         // $newComic->title = $data["title"];
