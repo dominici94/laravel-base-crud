@@ -38,17 +38,21 @@ class ComicController extends Controller
     {
         // dd($request->all());
         $data = $request->all();
-        $newComic = new Comic();
-        $newComic->title = $data["title"];
-        $newComic->description = $data["description"];
-        if (!empty($data["image"])) {
-            $newComic->image = $data["image"];
-        }
-        $newComic->price = $data["price"];
-        $newComic->series = $data["series"];
-        $newComic->sale_date = $data["sale_date"];
-        $newComic->type = $data["type"];
-        $newComic->save();
+        // dd($request);
+        // $newComic = new Comic();
+        // $newComic->title = $data["title"];
+        // $newComic->description = $data["description"];
+        // if (!empty($data["image"])) {
+        //     $newComic->image = $data["image"];
+        // }
+        // $newComic->price = $data["price"];
+        // $newComic->series = $data["series"];
+        // $newComic->sale_date = $data["sale_date"];
+        // $newComic->type = $data["type"];
+        // $newComic->save();
+
+        // MASS ASSIGNMENT
+        $newComic = Comic::create($data);
 
         return redirect()->route("comics.show", $newComic->id);
     }
@@ -88,16 +92,19 @@ class ComicController extends Controller
     {
         $data = $request->all();
 
-        $comic->title = $data["title"];
-        $comic->description = $data["description"];
-        if (!empty($data["image"])) {
-            $comic->image = $data["image"];
-        }
-        $comic->price = $data["price"];
-        $comic->series = $data["series"];
-        $comic->sale_date = $data["sale_date"];
-        $comic->type = $data["type"];
-        $comic->save();
+        // $comic->title = $data["title"];
+        // $comic->description = $data["description"];
+        // if (!empty($data["image"])) {
+        //     $comic->image = $data["image"];
+        // }
+        // $comic->price = $data["price"];
+        // $comic->series = $data["series"];
+        // $comic->sale_date = $data["sale_date"];
+        // $comic->type = $data["type"];
+        // $comic->save();
+
+        // MASS ASSIGNMENT
+        $comic->update($data);
 
         return redirect()->route("comics.show", $comic->id);
     }
